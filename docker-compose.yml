@@ -18,6 +18,8 @@ services:
   api:
     build:
       context: ./backend
+    ports:
+      - '${API_PORT:-4000}:4000'
     environment:
       NODE_ENV: production
       PORT: 4000
@@ -42,6 +44,8 @@ services:
   web:
     build:
       context: ./frontend
+    ports:
+      - '${WEB_PORT:-8080}:80'
 
   rtmp-hls:
     build:
